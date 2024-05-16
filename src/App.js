@@ -1,24 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.scss";
+import { createTheme, ThemeProvider, Box } from "@mui/material";
+import Home from "./pages/home/Home";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LoadingSquares from "./components/loadingSquares/LoadingSquares";
+import Navbar from "./components/navbar/Navbar";
 
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#0A1828",
+    },
+    secondary: {
+      main: "#178582",
+    },
+    tertiary: {
+      main: "#BFA181",
+    },
+  },
+});
+
+const routes = [
+  {
+    path: "/",
+    component: Home,
+  },
+];
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <Router>
+          <Navbar />
+          <LoadingSquares />
+          <Routes>
+            {routes.map((route, index) => {
+              return (
+                <Route
+                  key={index}
+                  path={route.path}
+                  element={<route.component />}
+                />
+              );
+            })}
+          </Routes>
+        </Router>
+      </div>
+    </ThemeProvider>
   );
 }
 
