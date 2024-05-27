@@ -1,0 +1,12 @@
+.experience-page {
+  padding-top: 80px;
+  height: 100vh;
+  width: 100vw;
+}
+
+.skills-list::before{
+    color: #BFA181;
+    content: "▹ ";
+    left: 0;
+    position: absolute;
+}
