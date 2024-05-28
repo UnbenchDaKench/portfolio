@@ -29,10 +29,52 @@ function Experience() {
       className="experience-page"
       sx={{
         display: "flex",
-        flexDirection: "column",
+        flexDirection: { xs: "column", md: "row" },
+        flexWrap: {
+          xs: "nowrap",
+          md: "wrap",
+        },
       }}
     >
-      <Box className="skills-section">
+      <Box sx={{ width: "100%" }}>
+        <Typography
+          variant="h1"
+          sx={{
+            color: "tertiary.main",
+            fontFamily: "League Spartan",
+            fontWeight: "bold",
+            textAlign: { xs: "left" },
+            ml: { md: "40%" },
+            position: "sticky",
+          }}
+        >
+          Experience
+        </Typography>
+      </Box>
+      <Box
+        className="skills-section"
+        sx={{
+          mt: {
+            xs: "5%",
+            md: "0%",
+          },
+          width: {
+            md: "40%",
+            xl: "30%"
+          },
+          ml: {
+            // lg: "17%",
+            xl: "5%"
+          },
+          height: {
+            md: "100%",
+          },
+          position: { md: "fixed" },
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+        }}
+      >
         <Typography
           variant="h4"
           sx={{
@@ -45,7 +87,7 @@ function Experience() {
             },
           }}
         >
-          Key Skills
+          Key Skills~
         </Typography>
         <Box component={motion.div}>
           <Paper
@@ -58,7 +100,7 @@ function Experience() {
               alignItems: "center",
               width: { xs: "90%" },
               ml: { xs: "5%" },
-              backgroundColor: "primary.main",
+              backgroundColor: "primary.light",
             }}
           >
             <List
@@ -67,6 +109,7 @@ function Experience() {
                 flexWrap: "wrap",
                 width: { xs: "100%" },
                 fontFamily: "League Spartan",
+                fontWeight: "bold",
                 color: "text.body",
               }}
             >
@@ -77,7 +120,7 @@ function Experience() {
                   sx={{ width: { xs: "40%" } }}
                 >
                   <ListItemButton>
-                    <ListItemText primary={skill} />
+                    <ListItemText disableTypography={true} primary={skill} />
                   </ListItemButton>
                 </ListItem>
               ))}
@@ -85,69 +128,110 @@ function Experience() {
           </Paper>
         </Box>
       </Box>
-      <Box className="certifications">
-      <Typography
-          variant="h4"
+      <Box
+        className="body"
+        sx={{
+          width: { md: "60%" },
+          ml: { md: "40%" },
+        }}
+      >
+        <Box
+          className="certifications"
           sx={{
-            color: "tertiary.main",
-            fontFamily: "League Spartan",
-            fontWeight: "bold",
-            textAlign: "left",
-            ml: {
+            mt: {
               xs: "5%",
             },
+            width: {
+              md: "80%",
+              xl: "70%",
+            },
+            // alignSelf: "center"
           }}
         >
-          Certifications
-        </Typography>
-        <Paper
-          color="tertiary.main"
-          elevation={10}
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            width: { xs: "90%" },
-            ml: { xs: "5%" },
-            backgroundColor: "primary.main",
-          }}
-        >
-          <List
+          <Typography
+            variant="h4"
             sx={{
-              display: "flex",
-              flexDirection: "column",
-              width: {
-                xs: "90%",
-                ml: { xs: "5%" },
-                fontFamily: "League Spartan",
-                color: "text.body",
+              color: "tertiary.main",
+              fontFamily: "League Spartan",
+              fontWeight: "bold",
+              textAlign: "left",
+              ml: {
+                xs: "5%",
               },
             }}
           >
-            {Certifications.map((certification, index) => (
-              <ListItem key={certification.name}>
-                <ListItemText  sx={{color: "text.body",}} primary={`${certification.name}: ${certification.acquired} - ${certification.expiration}`}/>
-              </ListItem>
-            ))}
-          </List>
-        </Paper>
-      </Box>
-      <Box className="work-experience">
-        <Typography
-          variant="h4"
+            Certifications~
+          </Typography>
+          <Paper
+            color="tertiary.main"
+            elevation={10}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              width: { xs: "90%" },
+              ml: { xs: "5%" },
+              backgroundColor: "primary.light",
+            }}
+          >
+            <List
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                width: {
+                  xs: "90%",
+                },
+                ml: { xs: "5%" },
+                fontFamily: "League Spartan",
+                fontWeight: "bold",
+                color: "text.body",
+              }}
+            >
+              {Certifications.map((certification, index) => (
+                <ListItem key={certification.name}>
+                  <ListItemText
+                    disableTypography={true}
+                    sx={{ color: "text.body" }}
+                    primary={`${certification.name}: ${certification.acquired} - ${certification.expiration}`}
+                  />
+                </ListItem>
+              ))}
+            </List>
+          </Paper>
+        </Box>
+        <Box
+          className="work-experience"
           sx={{
-            color: "tertiary.main",
-            fontFamily: "League Spartan",
-            fontWeight: "bold",
-            textAlign: "left",
-            ml: {
+            mt: {
               xs: "5%",
             },
+            width: {
+              md: "90%",
+              xl: "70%"
+            },
+            // ml: {
+            //   md: "40%"
+            // }
+            justifySelf: "center",
           }}
         >
-          Work Experience
-        </Typography>
-        <ExperienceSection />
+          <Typography
+            variant="h4"
+            sx={{
+              color: "tertiary.main",
+              fontFamily: "League Spartan",
+              fontWeight: "bold",
+              textAlign: "left",
+              ml: {
+                xs: "5%",
+                // lg: "20%",
+              },
+            }}
+          >
+            Work Experience~
+          </Typography>
+          <ExperienceSection />
+        </Box>
       </Box>
     </Box>
   );

@@ -10,20 +10,38 @@ function TabPanel(props) {
       id={`vertical-tabpanel-${index}`}
       aria-labelledby={`vertical-tab-${index}`}
       {...other}
+      style={{ width: "100%" }}
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
-          <Typography variant="h5" sx={{color: "text.body",
-            textAlign: "left",
-            fontWeight: "bold"}}>
+          <Typography
+            variant="h5"
+            sx={{
+              color: "text.body",
+              textAlign: "left",
+              fontWeight: "bold",
+              fontFamily: "League Spartan",
+            }}
+          >
             {props.experience.role}
           </Typography>
-          <Typography variant="h6" sx={{color: "tertiary.main",
-            textAlign: "left"}}>
+          <Typography
+            variant="h6"
+            sx={{
+              color: "tertiary.main",
+              textAlign: "left",
+              fontFamily: "League Spartan",
+            }}
+          >
             {props.experience.company}
           </Typography>
-          <Typography sx={{color: "text.body",
-            textAlign: "left"}}>
+          <Typography
+            sx={{
+              color: "text.body",
+              textAlign: "left",
+              fontFamily: "League Spartan",
+            }}
+          >
             {props.experience.date}
           </Typography>
           <List>
@@ -34,6 +52,7 @@ function TabPanel(props) {
                   sx={{
                     color: "text.body",
                     textAlign: "left",
+                    fontFamily: "League Spartan",
                     "::before": {
                       color: "#BFA181",
                       content: '"▹ "',
@@ -42,7 +61,7 @@ function TabPanel(props) {
                     },
                   }}
                 >
-                  <ListItemText primary={responsibility}></ListItemText>
+                  <ListItemText disableTypography={true} primary={responsibility}></ListItemText>
                 </ListItem>
               ))}
           </List>

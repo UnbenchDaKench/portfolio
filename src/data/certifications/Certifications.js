@@ -13,5 +13,10 @@ export const Certifications = [
         name: "IBM Certified Advocate - Cloud",
         acquired: "April 06 2022",
         expiration: "N/A",
+    },
+    {
+        name: "AWS Certified Developer - Associate",
+        acquired: "",
+        expiration: "Currently in progress",
     }
 ]

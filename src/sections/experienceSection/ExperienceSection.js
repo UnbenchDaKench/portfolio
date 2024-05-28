@@ -12,10 +12,12 @@ function ExperienceSection() {
   return (
     <Box sx={{
         maxWidth: {
-          xs: "90%"
+          xs: "90%",
+          lg: "100%"
         },
         ml: {
-          xs:"5%"
+          xs:"5%",
+        //   lg: "20%"
         }
         // bgcolor: 'background.paper'
       }}>
@@ -37,6 +39,8 @@ function ExperienceSection() {
           {ExperienceList.map((experience, index) => (
             <Tab key={index} label={experience.company}sx={{
               color: "text.body",
+              fontFamily: " League Spartan",
+              fontWeight: "900",
               "&.Mui-selected": {
                 color: "secondary.main"
               }
