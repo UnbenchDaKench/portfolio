@@ -77,13 +77,13 @@ function About({ handleHomePage }) {
           <br/>
           <br/>
           I hold extensive experience in various web development frameworks and technologies,
-          including React, Vue, and Angular for building vibrant and responsive UI's, While on the backend I am proficient in Java (spring boot), and Node.js(express).
-          Through my experience with AWS and othe cloud services coupled with these technologies, I have successfully deployed and managed cloud-based applications,
+          including React, Vue, and Angular for building vibrant and responsive UI's, while on the backend I am proficient in Java (spring boot), and Node.js (express).
+          Through my experience with AWS and other cloud services coupled with these technologies, I have successfully deployed and managed cloud-based applications,
           ensuring their reliability and accessibility.    
           <br/>
           <br/>
           When I am not drowning myself in work, I enjoy going on fishing trips, especially to new spots I haven't tried. I also love video games, which with my line of work,
-          means I am in front of a compputer 90% of the time.
+          means I am in front of a computer 90% of the time.
 
 
         </Typography>
