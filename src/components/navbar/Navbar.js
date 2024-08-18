@@ -6,13 +6,11 @@ import {
   Box,
   Button,
   Drawer,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
+  
 } from "@mui/material";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
+import SocialIcons from "../socialIcons/SocialIcons";
 
 const pages = ["Home", "About", "Experience", "Projects", "Contact"];
 
@@ -20,22 +18,38 @@ function Navbar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
 
+
+
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
-  useEffect(() => {}, []);
+  useEffect((
+
+  ) => {}, []);
   const drawer = (
-          
-          <Box onClick={handleDrawerToggle} sx={{ textAlign: "center",  backgroundColor: "primary.main", height: '100%', color: "secondary.main"}}>
-      <List>
-        {pages.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
+    <Box
+      onClick={handleDrawerToggle}
+      sx={{
+        textAlign: "center",
+        backgroundColor: "primary.main",
+        height: "100%",
+        color: "secondary.main",
+      }}
+    >
+      
+      {pages.map((page) => (
+              <Link
+                key={page}
+                style={{ textDecoration: "none", width: "100%"}}
+                to={page === "Home" ? "/" : "/" + page}
+              >
+                <Button
+                  sx={{ my: 2, color: "secondary.main", display: "block", textAlign: "center", width: "100%" }}
+                >
+                  {page}
+                </Button>
+              </Link>
+            ))}
     </Box>
   );
 
@@ -49,6 +63,7 @@ function Navbar(props) {
         id="navbar"
         sx={{
           zIndex: "3",
+          height: "64px"
         }}
       >
         <Toolbar disableGutters>
@@ -65,7 +80,7 @@ function Navbar(props) {
               },
             }}
           >
-            <MenuIcon sx={{color: "secondary.main"}}/>
+            <MenuIcon sx={{ color: "secondary.main" }} />
           </IconButton>
 
           <Box
@@ -95,6 +110,7 @@ function Navbar(props) {
               </Link>
             ))}
           </Box>
+          <SocialIcons />
         </Toolbar>
       </AppBar>
       <Drawer
@@ -103,7 +119,7 @@ function Navbar(props) {
         open={mobileOpen}
         onClose={handleDrawerToggle}
         ModalProps={{
-          keepMounted: true, // Better open performance on mobile.
+          keepMounted: true, 
         }}
         sx={{
           display: { xs: "block", md: "none" },

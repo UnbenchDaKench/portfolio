@@ -1,7 +1,7 @@
 .home-page {
   z-index: 2;
-  padding-top: 80px;
-  height: 100vh;
+  min-height: calc(100vh - 64px);
   width: 100vw;
-  // position: absolute;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }

@@ -6,6 +6,7 @@ function FadeIn({children, delay}) {
   initial={{opacity: 0,}}
   whileInView={{opacity: 1,}}
   transition={{duration: 1, delay: delay}}
+  style={{height: 'calc(100vh - 64px)', width: '100%'}}
   >{children}</motion.div>;
 }
 

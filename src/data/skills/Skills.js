@@ -3,6 +3,7 @@ export const Skills = [
     "Springboot",
     "Maven",
     "Kafka",
+    "GraphQL",
     "Javascript",
     "React",
     "Vue",

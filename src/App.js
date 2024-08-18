@@ -11,22 +11,24 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoadingSquares from "./components/loadingSquares/LoadingSquares";
 import Navbar from "./components/navbar/Navbar";
 import { useLocation } from "react-router-dom";
+import Footer from "./components/footer/Footer";
 
 const theme = createTheme({
   palette: {
     primary: {
       main: "#0A1828",
-      light: "#132e4d"
+      light: "#132e4d",
     },
     secondary: {
       main: "#178582",
     },
     tertiary: {
       main: "#BFA181",
+      dark: "#95714b",
     },
     text: {
-      body: "#869ba9"
-    }
+      body: "#869ba9",
+    },
   },
 });
 
@@ -52,41 +54,40 @@ const routes = [
     component: Contact,
   },
 ];
+function AppContent() {
+  const [isHome, setIsHome] = useState(true);
+  const location = useLocation();
+
+  useEffect(() => {
+    setIsHome(location.pathname === "/");
+  }, [location]);
+
+  
+
+  return (
+    <>
+      {!isHome && <Navbar  />}
+      {isHome && <LoadingSquares />}
+      <Routes>
+        {routes.map((route, index) => (
+          <Route
+            key={index}
+            path={route.path}
+            element={<route.component />}
+          />
+        ))}
+      </Routes>
+      {!isHome && <Footer />}
+    </>
+  );
+}
 function App() {
-const [isHome, setIsHome] = useState(false)
-const [pageIsChanged, setPageIsChanged] = useState(false)
-// const location = useLocation()
-
-const handleHomePage = (value) => {
-  setIsHome(value);
-}
-const handlePageTransition = (value) => {
-  setPageIsChanged(value);
-}
-
-useEffect(() => {
-  // if(location.pathname === "/"){
-  //   setIsHome(true)
-  // }
-}, [])
 
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
         <Router>
-          {!isHome && <Navbar handlePageTransition={handlePageTransition}/>}
-          <LoadingSquares />
-          <Routes>
-            {routes.map((route, index) => {
-              return (
-                <Route
-                  key={index}
-                  path={route.path}
-                  element={<route.component handleHomePage={handleHomePage} isHome={isHome} pageIsChanged={pageIsChanged}/>}
-                />
-              );
-            })}
-          </Routes>
+          <AppContent />
         </Router>
       </div>
     </ThemeProvider>

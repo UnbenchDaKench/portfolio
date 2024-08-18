@@ -1,39 +1,17 @@
 import React from "react";
-import { Paper, Typography } from "@mui/material";
+import { Paper, Typography, Box } from "@mui/material";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 function FloatingNav({ children, delay }) {
-
-   
-
   return (
-    <motion.div
+    <Box
+      component={motion.div}
       animate={["initial"]}
-      whileHover={["shake"]}
       variants={{
-        grow: {
-          scale: 1.1,
-        },
-        rotate: {
-          rotate: [null, -5, 5, 0],
-          transition: {
-            // delay,
-            duration: 1,
-            repeat: Infinity,
-            // repeatDelay: 0.2,
-            // repeatType: "reverse"
-          },
-        },
         shake: {
-          //   x: [0, -10, 10, -10, 10, 0], // X-axis positions for the shaking effect
-          //   y: [0, 10, -10, 10, -10, 0],
           rotate: [0, -10, 10, -10, 10, 0],
           scale: 1.1,
-          transition: {
-            duration: 0.5, // Duration of the shaking effect
-            ease: "easeInOut",
-          },
         },
         initial: {
           y: [-20, 20],
@@ -47,12 +25,20 @@ function FloatingNav({ children, delay }) {
         },
       }}
     >
-      <Typography
-        variant="h2"
-        sx={{
+      <motion.h2
+      whileHover={["shake"]}
+        variants={{
+          shake: {
+            rotate: [0, -10, 10, -10, 10, 0],
+            scale: 1.1,
+          },
+        }}
+        style={{
           color: "tertiary.main",
           fontFamily: "League Spartan",
-              fontWeight: "900",
+          fontWeight: "900",
+          fontSize: "3.5em"
+          
         }}
       >
         <Link
@@ -61,8 +47,8 @@ function FloatingNav({ children, delay }) {
         >
           {children}
         </Link>
-      </Typography>
-    </motion.div>
+      </motion.h2>
+    </Box>
   );
 }
 

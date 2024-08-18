@@ -3,33 +3,6 @@ import { Box } from "@mui/material";
 import { motion, useAnimation } from "framer-motion";
 import { useLocation } from "react-router-dom";
 
-const scaleVariants = {
-  in_and_out_small: {
-    scale: [1, 14],
-    borderWidth: "0.1px",
-  },
-  in_and_out_big: {
-    scale: [1, 12],
-    borderWidth: "0.1px",
-  },
-  pageTransitionSmall: {
-    scale: [14, 1, 14],
-    borderWidth: "0.1px",
-  },
-  pageTransitionBig: {
-    // scale: [1, 12],
-    borderWidth: "0.1px",
-  },
-};
-
-const rotateVariants = {
-  rotatingSquare: {
-    rotate: 360,
-  },
-  rotatingSquareInner: {
-    rotate: -720,
-  },
-};
 
 function LoadingSquares() {
   const [width, setWidth] = useState(window.innerWidth);
@@ -37,8 +10,6 @@ function LoadingSquares() {
   const location = useLocation();
 
   useEffect(() => {
-    console.log(width);
-    console.log(location);
   }, [controls, location, width]);
   return (
     <Box
@@ -71,7 +42,6 @@ function LoadingSquares() {
           border: "1px solid",
           borderColor: "tertiary.main",
           animation: "rotating-square 2000ms linear forwards",
-          // animationIterationCount: "2",
 
           "@keyframes rotating-square": {
             "0%": {

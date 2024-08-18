@@ -7,23 +7,17 @@ import {
   ListItemButton,
   ListItemText,
   Paper,
-  Tab,
-  Tabs,
   Typography,
 } from "@mui/material";
 import { Skills } from "../../data/skills/Skills";
 import { motion } from "framer-motion";
-import { ExperienceList } from "../../data/experience/Experience";
 import { Certifications } from "../../data/certifications/Certifications";
 import ExperienceSection from "../../sections/experienceSection/ExperienceSection";
-import TabPanel from "../../components/tabPanel/TabPanel";
 
 function Experience() {
   const [tab, setTab] = useState(0);
 
-  const handleTabChange = (event, newTab) => {
-    setTab(newTab);
-  };
+  
   return (
     <Box
       className="experience-page"
@@ -37,6 +31,21 @@ function Experience() {
       }}
     >
       <Box sx={{ width: "100%" }}>
+      <Typography
+          variant="h2"
+          sx={{
+            color: "tertiary.main",
+            fontFamily: "League Spartan",
+            fontWeight: "bold",
+            textAlign: { xs: "center" },
+            ml: { md: "40%" },
+            position: "sticky",
+            display: {xs: "block", md: "none"},
+            
+          }}
+        >
+          Experience
+        </Typography>
         <Typography
           variant="h1"
           sx={{
@@ -46,6 +55,7 @@ function Experience() {
             textAlign: { xs: "left" },
             ml: { md: "40%" },
             position: "sticky",
+            display: {xs: "none", md: "block"}
           }}
         >
           Experience
@@ -73,6 +83,7 @@ function Experience() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
+          alignItems: "center",
         }}
       >
         <Typography
@@ -81,9 +92,11 @@ function Experience() {
             color: "tertiary.main",
             fontFamily: "League Spartan",
             fontWeight: "bold",
-            textAlign: "left",
+            textAlign: {xs: "left", md: "center"},
+            width: "100%",
             ml: {
-              xs: "5%",
+              xs: "10%",
+              md: "0%"
             },
           }}
         >
@@ -98,9 +111,11 @@ function Experience() {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              width: { xs: "90%" },
-              ml: { xs: "5%" },
-              backgroundColor: "primary.light",
+              width: { xs: "18em" },
+              ml: { xs: "2.5%" },
+              // justifySelf: "center",
+              backgroundColor: "primary.main",
+              padding: "1em"
             }}
           >
             <List
@@ -117,7 +132,7 @@ function Experience() {
                 <ListItem
                   className="skills-list"
                   key={skill}
-                  sx={{ width: { xs: "40%" } }}
+                  sx={{ width: { xs: "50%" } }}
                 >
                   <ListItemButton>
                     <ListItemText disableTypography={true} primary={skill} />
@@ -171,7 +186,7 @@ function Experience() {
               alignItems: "center",
               width: { xs: "90%" },
               ml: { xs: "5%" },
-              backgroundColor: "primary.light",
+              backgroundColor: "primary.main",
             }}
           >
             <List
@@ -224,7 +239,6 @@ function Experience() {
               textAlign: "left",
               ml: {
                 xs: "5%",
-                // lg: "20%",
               },
             }}
           >
