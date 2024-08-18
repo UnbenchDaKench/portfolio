@@ -22,6 +22,7 @@ phases:
     commands:
       - echo Build completed on `date`
       - aws s3 sync build/ s3://abe-dev-portfolio --delete
+      - aws cloudfront create-invalidation --distribution-id E2X9DF56FOX0HV --paths "/*"
 
 artifacts:
   base-directory: build
