@@ -1,6 +1,6 @@
 .experience-page {
-  padding-top: 80px;
-  height: 100vh;
+  padding-top: 64px;
+  min-height: calc(100vh - 64px);
   width: 100vw;
   font-family: League Spartan;
 }
