@@ -8,6 +8,7 @@ function SocialIcons() {
     <Box 
         sx={{
             display: 'flex',
+            
         }}
     >
         <IconButton sx={{color: "secondary.main"}} onClick={() => window.open("https://github.com/unbenchdakench")}>

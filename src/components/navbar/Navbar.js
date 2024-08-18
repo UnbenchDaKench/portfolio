@@ -11,6 +11,7 @@ import {
 import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import SocialIcons from "../socialIcons/SocialIcons";
+import { JoinFullSharp } from "@mui/icons-material";
 
 const pages = ["Home", "About", "Experience", "Projects", "Contact"];
 
@@ -66,7 +67,11 @@ function Navbar(props) {
           height: "64px"
         }}
       >
-        <Toolbar disableGutters>
+        <Toolbar disableGutters sx={{
+          display: "flex",
+          justifyContent: "space-between"
+        
+        }}>
           <IconButton
             size="large"
             edge="start"
