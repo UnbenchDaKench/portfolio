@@ -4,15 +4,15 @@ phases:
   install:
     runtime-versions:
       nodejs: 16
-    commands: 
+    commands:
       - npm install
-  
+
   pre_build:
     commands:
       - echo Retrieving environment variables...
-      - aws ssm get-parameters-by-path --path "/portfolio/prod/" --with-decryption --region us-east-1 --output json | jq -r '.Parameters[] | .Name + "=" + .Value' > .env
-      - cat .env  # Debugging: Check if .env is populated
-      
+      - aws ssm get-parameters-by-path --path "/portfolio/prod/" --with-decryption --region us-east-1 --output json | jq -r '.Parameters[] | .Name | split("/")[-1] + "=" + .Value' > .env
+      - cat .env # Debugging: Check if .env is populated
+
   build:
     commands:
       - echo Build started on `date`
@@ -26,4 +26,4 @@ phases:
 artifacts:
   base-directory: build
   files:
-    - '**/*'
+    - "**/*"
