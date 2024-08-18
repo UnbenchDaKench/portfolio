@@ -42,7 +42,10 @@ function Home({ handleHomePage, isHome }) {
               md: "block",
             },
 
-            translate: "-18em",
+            translate: {
+              md:"-18em",
+              xl: "-18em 8em"
+            },
           }}
         >
           <FloatingNav>About</FloatingNav>
@@ -90,7 +93,10 @@ function Home({ handleHomePage, isHome }) {
               xs: "none",
               md: "block",
             },
-            translate: "18em -5em",
+            translate: {
+              md:"18em -5em",
+              xl: "18em 4em"
+            },
           }}
         >
           <FloatingNav delay={0.2}>Experience</FloatingNav>
@@ -137,7 +143,10 @@ function Home({ handleHomePage, isHome }) {
               xs: "none",
               md: "block",
             },
-            translate: "-18em 20em",
+            translate: {
+              md:"-18em 20em",
+              xl: "-18em 25em"
+            },
           }}
         >
           <FloatingNav delay={0.4}>Projects</FloatingNav>
@@ -185,7 +194,10 @@ function Home({ handleHomePage, isHome }) {
               xs: "none",
               md: "block",
             },
-            translate: "18em 15em",
+            translate: {
+              md:"18em 15em",
+              xl: "18em 20em"
+            },
           }}
         >
           <FloatingNav delay={0.6}>Contact</FloatingNav>
