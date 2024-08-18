@@ -61,6 +61,9 @@ function Contact() {
             sm: "70%",
           },
           alignSelf: "center",
+          fontFamily: "League Spartan",
+          fontWeight: "700",
+          mt: "1em"
         }}
       >
         Neeed a website or have a proposal? fill out the form below to get in
@@ -89,7 +92,7 @@ function Contact() {
             width: "90%",
             marginLeft: "5%",
 
-            marginTop: "5em",
+            marginTop: "2em",
             gap: 15,
             alignItems: "center",
             justifyContent: "space-between",

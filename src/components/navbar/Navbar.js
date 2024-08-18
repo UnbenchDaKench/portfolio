@@ -45,7 +45,7 @@ function Navbar(props) {
                 to={page === "Home" ? "/" : "/" + page}
               >
                 <Button
-                  sx={{ my: 2, color: "secondary.main", display: "block", textAlign: "center", width: "100%" }}
+                  sx={{ my: 2, color: "secondary.main", display: "block", textAlign: "center", width: "100%", fontFamily: "League Spartan", fontWeight: "600" }}
                 >
                   {page}
                 </Button>
@@ -108,7 +108,7 @@ function Navbar(props) {
                 to={page === "Home" ? "/" : "/" + page}
               >
                 <Button
-                  sx={{ my: 2, color: "secondary.main", display: "block" }}
+                  sx={{ my: 2, color: "secondary.main", display: "block", textAlign: "center", fontFamily: "League Spartan", fontWeight: "600" }}
                 >
                   {page}
                 </Button>

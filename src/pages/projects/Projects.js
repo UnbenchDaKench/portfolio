@@ -32,7 +32,7 @@ function Projects() {
           color: "tertiary.main",
           fontFamily: "League Spartan",
           fontWeight: "bold",
-          mt: "5em",
+          mt: "3em",
           display: {
             md: "none",
             lg: "block",
