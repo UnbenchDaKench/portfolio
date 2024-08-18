@@ -10,7 +10,7 @@ phases:
   pre_build:
     commands:
       - echo Retrieving environment variables...
-      - aws ssm get-parameters-by-path --path "/portfolio/prod/" --with-decryption --region us-east-1 --output json | jq -r '.Parameters[] | .Name | split("/")[-1] + "=" + .Value' > .env
+      - aws ssm get-parameters-by-path --path "/portfolio/prod/" --with-decryption --region us-east-1 --output json | jq -r '.Parameters[] | (.Name | split("/")[-1]) + "=" + .Value' > .env
       - cat .env # Debugging: Check if .env is populated
 
   build:
