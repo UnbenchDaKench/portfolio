@@ -1,6 +1,6 @@
 .home-page {
   z-index: 2;
-  min-height: calc(100vh - 64px);
+  max-height: calc(100vh - 64px);
   width: 100vw;
   overflow-y: hidden;
   overflow-x: hidden;
