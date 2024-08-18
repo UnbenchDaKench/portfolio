@@ -32,7 +32,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "start:dev": "env-cmd -f .env.local npm run-script start"
   },
   "eslintConfig": {
     "extends": [
@@ -54,5 +55,8 @@
   },
   "resolutions": {
     "resolve-url-loader": "5.0.0"
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0"
   }
 }

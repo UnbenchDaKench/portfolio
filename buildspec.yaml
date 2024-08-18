@@ -4,19 +4,19 @@ phases:
   install:
     runtime-versions:
       nodejs: 16
-    commands:
-      - npm install -g yarn
+    commands: 
+      - npm install
   
   pre_build:
     commands:
       - echo Retrieving environment variables...
       - aws ssm get-parameters-by-path --path "/portfolio/prod/" --with-decryption --region us-east-1 --output json | jq -r '.Parameters[] | .Name + "=" + .Value' > .env
-      - yarn install
-
+      - cat .env  # Debugging: Check if .env is populated
+      
   build:
     commands:
       - echo Build started on `date`
-      - yarn build
+      - npm run build
 
   post_build:
     commands:
