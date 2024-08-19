@@ -66,7 +66,7 @@ function Contact() {
           mt: "1em"
         }}
       >
-        Neeed a website or have a proposal? fill out the form below to get in
+        Need a website or have a proposal? fill out the form below to get in
         touch!
       </Typography>
 
