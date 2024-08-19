@@ -73,7 +73,7 @@ function About({ handleHomePage }) {
           margin: "auto"
         }}
         >
-          My name is Abiodun and I am a passionate full-stack developer currently based in Halifax, Nova Scotia. And working full time for IBM Canada.
+          My name is Abiodun (Abé for short) and I am a passionate full-stack developer currently based in Halifax, Nova Scotia. And working full time for IBM Canada.
           <br/>
           <br/>
           I hold extensive experience in various web development frameworks and technologies,
