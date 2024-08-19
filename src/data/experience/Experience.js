@@ -21,9 +21,9 @@ export const ExperienceList = [
         collaborating with different departments.`,
       `Studied demographic data to determine optimal targets,
         competitor offerings and tactics for persuasion.`,
-      `created customized marketing materials to increase
+      `Created customized marketing materials to increase
         product awareness.`,
-      `consulted with clients on business issues and developed
+      `Consulted with clients on business issues and developed
         innovative, high impact proposals.`,
     ],
     date: "SEP 2020 - NOV 2021",
@@ -36,7 +36,7 @@ export const ExperienceList = [
         environment.`,
         `Offered friendly and efficient service to customers,
         handled challenging situations with ease.`,
-        `maintained excellent attendance record, consistently
+        `Maintained excellent attendance record, consistently
         arriving to work on time.`,
         `Broke down and evaluated user problems, using test
         scripts, personal expertise and probing questions.`,
