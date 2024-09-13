@@ -114,7 +114,7 @@ function Contact() {
             }}
             sx={{
               width: "47.5%",
-              backgroundColor: "secondary.main",
+              backgroundColor: "white",
               borderRadius: "0.5em",
             }}
           />
@@ -134,7 +134,7 @@ function Contact() {
             }}
             sx={{
               width: "47.5%",
-              backgroundColor: "secondary.main",
+              backgroundColor: "white",
               borderRadius: "0.5em",
             }}
           />
@@ -154,7 +154,7 @@ function Contact() {
             }}
             sx={{
               width: "100%",
-              backgroundColor: "secondary.main",
+              backgroundColor: "white",
               borderRadius: "0.5em",
             }}
           />
@@ -175,7 +175,7 @@ function Contact() {
             rows={4}
             sx={{
               width: "100%",
-              backgroundColor: "secondary.main",
+              backgroundColor: "white",
               borderRadius: "0.5em",
               textAlign: "left",
             }}

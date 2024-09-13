@@ -52,8 +52,18 @@ function Carousel({ items }) {
                 objectFit: "cover",
                 objectPosition: "center",
                 borderRadius: "25px",
+                // "&:hover": {
+                //   opacity: checked === item.id ? "0.8" : "1",
+                //   backgroundColor: "grey"
+                // },
+
               }}
             />
+            {checked === item.id && (
+              <Box>
+                
+              </Box>
+            )}
             {checked === item.id && (
               <Typography
                 variant="h6"

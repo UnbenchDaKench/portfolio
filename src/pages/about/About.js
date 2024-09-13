@@ -3,7 +3,7 @@ import "./About.scss";
 import { Box, Typography } from "@mui/material";
 
 import DroppingImage from "../../components/droppingImage/DroppingImage";
-import ProHeadshot from "../../images/pro headshot2.jpeg";
+import ProHeadshot from "../../images/pro headshot.jpeg";
 import { useAnimation, motion} from "framer-motion";
 
 

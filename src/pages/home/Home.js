@@ -5,6 +5,8 @@ import FadeIn from "../../components/fadeIn/FadeIn";
 import FloatingNav from "../../components/floatingNav/FloatingNav";
 import { useAnimation, motion } from "framer-motion";
 import SocialIcons from "../../components/socialIcons/SocialIcons";
+import Gif from "../../images/homepage animation.gif"
+import zIndex from "@mui/material/styles/zIndex";
 
 function Home({ handleHomePage, isHome }) {
   const [width, setWidth] = useState(window.innerWidth);
@@ -44,7 +46,7 @@ function Home({ handleHomePage, isHome }) {
 
             translate: {
               md:"-18em",
-              xl: "-18em 8em"
+              // xl: "-18em 8em"
             },
           }}
         >
@@ -95,7 +97,7 @@ function Home({ handleHomePage, isHome }) {
             },
             translate: {
               md:"18em -5em",
-              xl: "18em 4em"
+              // xl: "18em 4em"
             },
           }}
         >
@@ -145,7 +147,7 @@ function Home({ handleHomePage, isHome }) {
             },
             translate: {
               md:"-18em 20em",
-              xl: "-18em 25em"
+              // xl: "-18em 25em"
             },
           }}
         >
@@ -196,7 +198,7 @@ function Home({ handleHomePage, isHome }) {
             },
             translate: {
               md:"18em 15em",
-              xl: "18em 20em"
+              // xl: "18em 20em"
             },
           }}
         >
@@ -243,7 +245,7 @@ function Home({ handleHomePage, isHome }) {
         sx={{
           width: {
             xs: "80%",
-            md: "300px",
+            md: "450px",
           },
           height: {
             xs: "20%",
@@ -270,6 +272,18 @@ function Home({ handleHomePage, isHome }) {
         >
           Hey I'm Abé
         </Typography>
+        {/* <Box
+        component="img"
+        src={Gif}
+          sx={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: "center",
+            // position: "absolute",
+            // zIndex: 5
+          }}
+        /> */}
         <SocialIcons/>
       </Box>
 

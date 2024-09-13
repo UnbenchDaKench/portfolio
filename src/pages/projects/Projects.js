@@ -16,13 +16,11 @@ function Projects() {
           sm: "0%",
           lg: "1em"
         },
-        // pt:{xs: "56px", sm:"64px", md: "86px"},
         pt: "64px",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        // justifyContent: {xs: "center", lg: "inherit"},
-        // gap: "1em"
+        
       }}
     >
       
@@ -48,11 +46,6 @@ function Projects() {
           color: "tertiary.main",
           fontFamily: "League Spartan",
           fontWeight: "bold",
-          // mt: {
-          //   xs: "10%",
-          //   sm:"2%",
-          //   md:"2%"
-          // },
           mt: "4em",
           display: {
             xs: "none",
@@ -76,86 +69,6 @@ function Projects() {
       >
         <Carousel items={ProjectsList} />
       </Box>
-      {/* <Typography
-        variant="h4"
-        sx={{
-          color: "tertiary.main",
-          fontFamily: "League Spartan",
-          fontWeight: "bold",
-          mt: {
-            xs: "10%",
-            md:"2%",
-            lg: "5%"
-          },
-          display: {
-            md: "none",
-            lg: "block",
-            xl: "none"
-          }
-        }}
-      >
-        Concepts
-      </Typography>
-      <Typography
-        variant="h3"
-        sx={{
-          color: "tertiary.main",
-          fontFamily: "League Spartan",
-          fontWeight: "bold",
-          mt: {
-            xs: "10%",
-            sm:"2%",
-            md:"2%",
-            xl: "3%"
-          },
-          display: {
-            xs: "none",
-            md: "block",
-            lg: "none",
-            xl: "block"
-          }
-        }}
-      >
-        Concepts
-      </Typography> */}
-      {/* <Typography
-        variant="h4"
-        sx={{
-          color: "tertiary.main",
-          fontFamily: "League Spartan",
-          fontWeight: "bold",
-          mt: {
-            xs: "10%",
-            sm:"2%",
-            md:"2%",
-            lg: "5%"
-          },
-          display: {
-            xs: "none",
-            md: "none",
-            lg: "block"
-          }
-        }}
-      >
-        Concepts
-      </Typography> */}
-      {/* <Box
-        className="concept-section"
-        sx={{
-          mt: {
-            xs: "10px",
-          },
-          mb: {
-            // xs: "10px"
-          },
-          width: {xs: "100%", md: "100%", lg: "75%"},
-          height: {xs: "15em", sm: "25em", md: "32em", lg: "17em", xl: "20em"},
-          display: "flex",
-          flexDirection: "column"
-        }}
-      >
-        <Carousel items={Concepts} />
-      </Box> */}
     </Box>
   );
 }
