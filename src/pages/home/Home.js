@@ -256,7 +256,7 @@ function Home({ handleHomePage, isHome }) {
             md: "450px",
           },
           height: {
-            xs: "20%",
+            xs: "22%",
             sm: "30%",
             md: "300px",
           },
