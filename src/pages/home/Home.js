@@ -7,10 +7,13 @@ import { useAnimation, motion } from "framer-motion";
 import SocialIcons from "../../components/socialIcons/SocialIcons";
 import Gif from "../../images/homepage animation.gif"
 import zIndex from "@mui/material/styles/zIndex";
+import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 function Home({ handleHomePage, isHome }) {
-  const [width, setWidth] = useState(window.innerWidth);
+  // const [width, setWidth] = useState(window.innerWidth);
   const controls = useAnimation();
+
+  const { height, width } = useWindowDimensions();
   useEffect(() => {}, []);
   return (
     <Box
@@ -69,7 +72,8 @@ function Home({ handleHomePage, isHome }) {
             },
             margin: "auto",
             translate: {
-              xs: "0em 0em",
+              // xs: "0em 0em",
+              xs: height > 750 ? "0em 12vh" : "0em 0em",
               sm: "0em 6em"
             }
 
@@ -120,7 +124,8 @@ function Home({ handleHomePage, isHome }) {
             },
             margin: "auto",
             translate: {
-              xs: "0em 0em",
+              xs: height > 750 ? "0em 12vh" : "0em 0em",
+              // xs: "0em 0em",
               sm: "0em 6em"
             }
           }}
@@ -147,7 +152,7 @@ function Home({ handleHomePage, isHome }) {
             },
             translate: {
               md:"-18em 20em",
-              // xl: "-18em 25em"
+              xl: "-18em 25em"
             },
           }}
         >
@@ -171,8 +176,9 @@ function Home({ handleHomePage, isHome }) {
             },
             margin: "auto",
             translate: {
-              xs:"0em 15em",
-              sm:"0em 30em"
+              xs:height < 750 ? "0em 32.5vh" : "0em 45vh" ,
+              // sm:"0em 30em"
+              sm: height < 960 ? "0em 30em" : " 0em 55vh"
             }
           }}
         >
@@ -198,7 +204,7 @@ function Home({ handleHomePage, isHome }) {
             },
             translate: {
               md:"18em 15em",
-              // xl: "18em 20em"
+              xl: "18em 20em"
             },
           }}
         >
@@ -221,8 +227,10 @@ function Home({ handleHomePage, isHome }) {
             },
             margin: "auto",
             translate: {
-              xs:"0em 15em",
-              sm:"0em 30em"
+              // xs:"0em 40vh",
+              xs: height < 750 ? "0em 32.5vh" : "0em 45vh",
+              // sm:"0em 30em"
+              sm: height < 960 ? "0em 30em" : " 0em 55vh"
             }
 
           }}
@@ -249,6 +257,7 @@ function Home({ handleHomePage, isHome }) {
           },
           height: {
             xs: "20%",
+            sm: "30%",
             md: "300px",
           },
           position: "absolute",
@@ -261,7 +270,7 @@ function Home({ handleHomePage, isHome }) {
           
         }}
       >
-        <Typography
+        {/* <Typography
           className=""
           variant="h4"
           sx={{
@@ -271,8 +280,8 @@ function Home({ handleHomePage, isHome }) {
           }}
         >
           Hey I'm Abé
-        </Typography>
-        {/* <Box
+        </Typography> */}
+        <Box
         component="img"
         src={Gif}
           sx={{
@@ -283,7 +292,7 @@ function Home({ handleHomePage, isHome }) {
             // position: "absolute",
             // zIndex: 5
           }}
-        /> */}
+        />
         <SocialIcons/>
       </Box>
 
