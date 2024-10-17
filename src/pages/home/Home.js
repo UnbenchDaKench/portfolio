@@ -178,7 +178,7 @@ function Home({ handleHomePage, isHome }) {
             translate: {
               xs:height < 750 ? "0em 32.5vh" : "0em 45vh" ,
               // sm:"0em 30em"
-              sm: height < 960 ? "0em 30em" : " 0em 50vh"
+              sm: height < 960 ? "0em 25em" : " 0em 55vh"
             }
           }}
         >
@@ -230,7 +230,7 @@ function Home({ handleHomePage, isHome }) {
               // xs:"0em 40vh",
               xs: height < 750 ? "0em 32.5vh" : "0em 45vh",
               // sm:"0em 30em"
-              sm: height < 960 ? "0em 30em" : " 0em 50vh"
+              sm: height < 960 ? "0em 25em" : " 0em 55vh"
             }
 
           }}
