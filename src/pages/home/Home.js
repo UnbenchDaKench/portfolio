@@ -151,7 +151,7 @@ function Home({ handleHomePage, isHome }) {
               md: "block",
             },
             translate: {
-              md:"-18em 20em",
+              md:"-18em 19em",
               // xl: "-18em 25em"
             },
           }}
