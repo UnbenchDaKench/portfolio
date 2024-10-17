@@ -152,7 +152,7 @@ function Home({ handleHomePage, isHome }) {
             },
             translate: {
               md:"-18em 20em",
-              xl: "-18em 25em"
+              // xl: "-18em 25em"
             },
           }}
         >
@@ -204,7 +204,7 @@ function Home({ handleHomePage, isHome }) {
             },
             translate: {
               md:"18em 15em",
-              xl: "18em 20em"
+              // xl: "18em 20em"
             },
           }}
         >
@@ -270,17 +270,6 @@ function Home({ handleHomePage, isHome }) {
           
         }}
       >
-        {/* <Typography
-          className=""
-          variant="h4"
-          sx={{
-            color: "text.body",
-            fontFamily: "League Spartan",
-            fontWeight: "400",
-          }}
-        >
-          Hey I'm Abé
-        </Typography> */}
         <Box
         component="img"
         src={Gif}
@@ -289,8 +278,7 @@ function Home({ handleHomePage, isHome }) {
             height: "100%",
             objectFit: "cover",
             objectPosition: "center",
-            // position: "absolute",
-            // zIndex: 5
+            
           }}
         />
         <SocialIcons/>
