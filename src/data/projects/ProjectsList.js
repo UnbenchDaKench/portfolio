@@ -1,6 +1,7 @@
 import SayoPortfolio from "../../images/SayoPortfolio.png"
 import TopNotchLocs from "../../images/TopNotchLocks.png";
 import WorldShutters from "../../images/WorldShutters.png";
+import Sarcina from "../../images/Sarcina.png";
 
 export const ProjectsList = [
     {
@@ -22,6 +23,13 @@ export const ProjectsList = [
         name: "World Shutters",
         image: WorldShutters,
         link: "https://world-shutters-photography.netlify.app/",
+        category: "concepts"
+    },
+    {
+        id: 4,
+        name: "Sarcina",
+        image: Sarcina,
+        link: "https://sarcina.netlify.app",
         category: "concepts"
     }
 ]
