@@ -29,7 +29,7 @@ export const ProjectsList = [
         id: 4,
         name: "Sarcina",
         image: Sarcina,
-        link: "https://sarcina.netlify.app",
-        category: "concepts"
+        link: "https://sarcina.ng",
+        category: "comissions"
     }
 ]
