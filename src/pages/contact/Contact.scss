@@ -1,6 +1,56 @@
-.contact-page{
-    min-height: calc(100vh - 200px);
-    width: 100vw;
-    padding-top: 64px;
+.contact-page {
+  min-height: calc(100vh - 200px);
+  width: 100vw;
+  padding-top: 64px;
+  position: relative;
+  overflow: hidden;
 
+  // Subtle gradient background
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(0, 0, 0, 0.02) 100%
+  );
+
+  // Form container enhancements
+  form {
+    position: relative;
+    z-index: 1;
+  }
+
+  // Custom scrollbar for textarea
+  textarea {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+      
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.3);
+      }
+    }
+  }
+
+  // Add smooth transitions to all interactive elements
+  input,
+  textarea,
+  button {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  // Focus visible for accessibility
+  *:focus-visible {
+    outline: 2px solid;
+    outline-offset: 2px;
+  }
 }

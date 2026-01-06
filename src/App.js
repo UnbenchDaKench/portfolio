@@ -7,11 +7,11 @@ import About from "./pages/about/About";
 import Experience from "./pages/experience/Experience";
 import Projects from "./pages/projects/Projects";
 import Contact from "./pages/contact/Contact";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import LoadingSquares from "./components/loadingSquares/LoadingSquares";
 import Navbar from "./components/navbar/Navbar";
-import { useLocation } from "react-router-dom";
 import Footer from "./components/footer/Footer";
+import { AnimatePresence, motion } from "framer-motion";
 
 const theme = createTheme({
   palette: {
@@ -54,6 +54,27 @@ const routes = [
     component: Contact,
   },
 ];
+const pageVariants = {
+  initial: {
+    opacity: 0,
+    y: 20,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+  },
+  exit: {
+    opacity: 0,
+    y: -20,
+  },
+};
+
+const pageTransition = {
+  type: "tween",
+  ease: "anticipate",
+  duration: 0.4,
+};
+
 function AppContent() {
   const [isHome, setIsHome] = useState(true);
   const location = useLocation();
@@ -62,27 +83,35 @@ function AppContent() {
     setIsHome(location.pathname === "/");
   }, [location]);
 
-  
-
   return (
     <>
-      {!isHome && <Navbar  />}
+      {!isHome && <Navbar />}
       {isHome && <LoadingSquares />}
-      <Routes>
-        {routes.map((route, index) => (
-          <Route
-            key={index}
-            path={route.path}
-            element={<route.component />}
-          />
-        ))}
-      </Routes>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={location.pathname}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          variants={pageVariants}
+          transition={pageTransition}
+        >
+          <Routes location={location}>
+            {routes.map((route, index) => (
+              <Route
+                key={index}
+                path={route.path}
+                element={<route.component />}
+              />
+            ))}
+          </Routes>
+        </motion.div>
+      </AnimatePresence>
       {!isHome && <Footer />}
     </>
   );
 }
 function App() {
-
   return (
     <ThemeProvider theme={theme}>
       <div className="App">

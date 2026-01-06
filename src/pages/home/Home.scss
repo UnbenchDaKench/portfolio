@@ -2,6 +2,6 @@
   z-index: 2;
   max-height: calc(100vh - 64px);
   width: 100vw;
-  overflow-y: hidden;
-  overflow-x: hidden;
+  overflow: hidden;
+  min-height: calc(100vh - 64px);
 }

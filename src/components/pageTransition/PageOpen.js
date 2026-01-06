@@ -1,17 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Box } from "@mui/material";
 import { motion } from "framer-motion";
 
-
 function PageOpen() {
-    const [width, setWidth] = useState(window.innerWidth)
+  const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <Box
       component={motion.div}
-      initial={{scale: 0}}
-      animate={{scale: width >= 900 ? 12: 14, borderWidth: "0.1px"}}
-      transition={{duration: 1}}
+      initial={{ scale: 0, opacity: 0 }}
+      animate={{
+        scale: width >= 900 ? 12 : 14,
+        opacity: [0, 1, 0],
+        borderWidth: "0.1px",
+      }}
+      transition={{
+        duration: 1,
+        ease: [0.4, 0, 0.2, 1],
+      }}
       sx={{
         display: "flex",
         justifyContent: "center",
@@ -26,9 +38,15 @@ function PageOpen() {
         },
         border: "1px solid",
         borderColor: "tertiary.main",
+        borderRadius: "50%",
+        position: "fixed",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        zIndex: 9999,
       }}
-    ></Box>
-  )
+    />
+  );
 }
 
 export default PageOpen
