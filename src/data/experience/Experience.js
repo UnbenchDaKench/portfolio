@@ -1,5 +1,17 @@
 export const ExperienceList = [
   {
+    company: "Government of Nova Scotia",
+    role: "Senior Application Developer/Analyst",
+    Responsibilities: [
+      `Develop enterprise full-stack applications using .NET Core, ASP.NET, Angular, and SQL Server.`,
+      `Build secure RESTful APIs aligned with government compliance and security standards.`,
+      `Translate business requirements into scalable technical solutions and system designs.`,
+      `Optimize database performance through query tuning and schema improvements.`,
+      `Maintain and enhance production systems to improve reliability and usability.`,
+    ],
+    date: "OCT 2024 - Present",
+  },
+  {
     company: "IBM Canada",
     role: "Application Developer",
     Responsibilities: [
@@ -9,7 +21,7 @@ export const ExperienceList = [
       `Built web pages for different web applications and developing reusable components to improve development and reusability of code.`,
       `Constant growth through self guided learning and obtaining certifications to further broaden my skill set.`,
     ],
-    date: "DEC 2021 - Present",
+    date: "DEC 2021 - OCT 2024",
   },
   {
     company: "Web.com",

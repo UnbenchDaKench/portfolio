@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.13b6d10c.css",
+    "main.js": "/static/js/main.e2c109c6.js",
+    "static/js/453.ace21015.chunk.js": "/static/js/453.ace21015.chunk.js",
+    "static/media/TopNotchLocks.png": "/static/media/TopNotchLocks.2b5dd2253ae8bc33a624.png",
+    "static/media/WorldShutters.png": "/static/media/WorldShutters.57110d219617d448bc3b.png",
+    "static/media/homepage animation.gif": "/static/media/homepage animation.a8fc4d74a3ffefa7095b.gif",
+    "static/media/KingBlackVIP.png": "/static/media/KingBlackVIP.02b7c051df278c5bcc9b.png",
+    "static/media/Sarcina.png": "/static/media/Sarcina.5190bc01b90ec5c0d6f8.png",
+    "static/media/pro headshot.jpeg": "/static/media/pro headshot.ef7ea29522ba4d3e59df.jpeg",
+    "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/index.html",
+    "main.13b6d10c.css.map": "/static/css/main.13b6d10c.css.map",
+    "main.e2c109c6.js.map": "/static/js/main.e2c109c6.js.map",
+    "453.ace21015.chunk.js.map": "/static/js/453.ace21015.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.13b6d10c.css",
+    "static/js/main.e2c109c6.js"
+  ]
+}

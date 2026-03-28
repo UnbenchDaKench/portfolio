@@ -3,15 +3,19 @@ import { Box } from "@mui/material";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-function FloatingNav({ children, delay, fontSize = "3.5em", angle }) {
+function FloatingNav({ children, delay, fontSize = "3.5em", angle, compact }) {
   const [isHovered, setIsHovered] = useState(false);
+
+  const floatY = compact ? [-5, 5] : [-12, 12];
+  const floatX = compact ? [-3, 3] : [-8, 8];
+  const floatRotate = compact ? [-1, 1] : [-2, 2];
 
   // Continuous floating animation
   const floatingVariants = {
     float: {
-      y: [-12, 12],
-      x: [-8, 8],
-      rotate: [-2, 2],
+      y: floatY,
+      x: floatX,
+      rotate: floatRotate,
       transition: {
         duration: 5,
         repeat: Infinity,
@@ -23,8 +27,8 @@ function FloatingNav({ children, delay, fontSize = "3.5em", angle }) {
 
   // Enhanced hover animation
   const hoverVariants = {
-    scale: 1.2,
-    y: -10,
+    scale: compact ? 1.08 : 1.2,
+    y: compact ? -4 : -10,
     rotate: 0,
     transition: {
       duration: 0.4,

@@ -7,32 +7,94 @@ import SocialIcons from "../../components/socialIcons/SocialIcons";
 import Gif from "../../images/homepage animation.gif";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 
-// Navigation links configuration with diamond positions (diagonal arrangement)
+// Desktop: diamond / cross. Mobile: two above GIF, two below (horizontal pairs).
 const navLinks = [
-  { name: "About", position: "top", angle: -45, delay: 0.2 },        // Top (diagonal)
-  { name: "Experience", position: "right", angle: 45, delay: 0.3 },  // Right (diagonal)
-  { name: "Projects", position: "bottom", angle: 135, delay: 0.4 },  // Bottom (diagonal)
-  { name: "Contact", position: "left", angle: -135, delay: 0.5 },    // Left (diagonal)
+  { name: "About", position: "top", mobile: { x: -1, y: -1 }, angle: -45, delay: 0.2 },
+  { name: "Experience", position: "right", mobile: { x: 1, y: -1 }, angle: 45, delay: 0.3 },
+  { name: "Projects", position: "bottom", mobile: { x: -1, y: 1 }, angle: 135, delay: 0.4 },
+  { name: "Contact", position: "left", mobile: { x: 1, y: 1 }, angle: -135, delay: 0.5 },
 ];
+
+const EDGE_PAD = 14;
+/** Extra room for float/hover motion so labels are not clipped by overflow:hidden */
+const MOTION_PAD = 20;
+
+function clampDiamondSpacing(width, height) {
+  const base =
+    width < 400 ? 140 : width < 600 ? 180 : width < 768 ? 220 : 350;
+
+  // Rough half-extent of the longest label ("Experience") for horizontal clamping
+  const labelHalfW =
+    width < 400 ? 62 : width < 480 ? 70 : width < 600 ? 80 : width < 768 ? 95 : 125;
+  const maxX = width / 2 - EDGE_PAD - labelHalfW - MOTION_PAD;
+
+  // Vertical: home xs uses maxHeight ~ 100vh − 15em; also cap by viewport so short phones work
+  const emPx =
+    typeof window !== "undefined"
+      ? parseFloat(getComputedStyle(document.documentElement).fontSize) || 16
+      : 16;
+  const contentH =
+    width < 768 ? Math.max(240, height - 15 * emPx - 8) : height - 64;
+  const labelHalfH = width < 768 ? 36 : 48;
+  const fromContent = contentH / 2 - EDGE_PAD - labelHalfH - MOTION_PAD;
+  const fromViewport = height * 0.34 - labelHalfH - MOTION_PAD;
+  const maxY = Math.max(0, Math.min(fromContent, fromViewport));
+
+  const cap = Math.min(Math.max(0, maxX), maxY);
+  const spacing = Math.min(base, cap);
+  return Math.max(44, spacing);
+}
+
+function getMobileNavLayout(width, height) {
+  const labelHalfW =
+    width < 400 ? 62 : width < 480 ? 70 : width < 600 ? 80 : 95;
+  const maxX = width / 2 - EDGE_PAD - labelHalfW - MOTION_PAD;
+  const horizontalIdeal =
+    width < 400 ? 68 : width < 600 ? 88 : 104;
+  const horizontal = Math.max(36, Math.min(horizontalIdeal, maxX));
+
+  const emPx =
+    typeof window !== "undefined"
+      ? parseFloat(getComputedStyle(document.documentElement).fontSize) || 16
+      : 16;
+  const contentH =
+    width < 768 ? Math.max(240, height - 15 * emPx - 8) : height - 64;
+  const gifH = width < 600 ? 200 : 250;
+  const socialBand = 56;
+  // From layout center to above/below GIF: half GIF + social strip + breathing room
+  const verticalIdeal = gifH / 2 + socialBand + 28;
+  const labelHalfH = 38;
+  const maxY = contentH / 2 - EDGE_PAD - labelHalfH - MOTION_PAD;
+  const vertical = Math.max(52, Math.min(verticalIdeal, maxY));
+
+  return { horizontal, vertical };
+}
 
 function Home({ handleHomePage, isHome }) {
   const { height, width } = useWindowDimensions();
-  
-  // Responsive spacing for diamond positioning - diagonal distance from center
-  const diamondSpacing = width < 768 ? (width < 600 ? 200 : 250) : 350;
-  
-  // Responsive font size for nav links - adjusted for better proportions
-  const navFontSize = width < 768 ? (width < 600 ? "1.6em" : "2em") : "2.8em";
-  
-  // Calculate diamond positions (top, right, bottom, left on diagonals)
-  const getPosition = (position) => {
+
+  const isMobileNav = width < 768;
+  const diamondSpacing = isMobileNav ? 0 : clampDiamondSpacing(width, height);
+  const mobileLayout = isMobileNav ? getMobileNavLayout(width, height) : null;
+
+  const navFontSize =
+    width < 400 ? "1.35em" : width < 600 ? "1.55em" : width < 768 ? "2em" : "2.8em";
+
+  const getPosition = (link) => {
+    if (isMobileNav && mobileLayout) {
+      const { horizontal, vertical } = mobileLayout;
+      return {
+        x: link.mobile.x * horizontal,
+        y: link.mobile.y * vertical,
+      };
+    }
     const positions = {
-      top: { x: 0, y: -diamondSpacing },       // Top
-      right: { x: diamondSpacing, y: 0 },      // Right
-      bottom: { x: 0, y: diamondSpacing },     // Bottom
-      left: { x: -diamondSpacing, y: 0 },      // Left
+      top: { x: 0, y: -diamondSpacing },
+      right: { x: diamondSpacing, y: 0 },
+      bottom: { x: 0, y: diamondSpacing },
+      left: { x: -diamondSpacing, y: 0 },
     };
-    return positions[position];
+    return positions[link.position];
   };
 
   return (
@@ -63,9 +125,9 @@ function Home({ handleHomePage, isHome }) {
           justifyContent: "center",
         }}
       >
-        {/* Floating Navigation Links - Diamond Pattern */}
-        {navLinks.map((link, index) => {
-          const { x, y } = getPosition(link.position);
+        {/* Floating Navigation — desktop: diamond; mobile: pairs above / below GIF */}
+        {navLinks.map((link) => {
+          const { x, y } = getPosition(link);
           
           return (
             <Box
@@ -81,10 +143,11 @@ function Home({ handleHomePage, isHome }) {
                 transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
               }}
             >
-              <FloatingNav 
-                delay={2.8 + link.delay} 
+              <FloatingNav
+                delay={2.8 + link.delay}
                 fontSize={navFontSize}
                 angle={link.angle}
+                compact={width < 768}
               >
                 {link.name}
               </FloatingNav>
